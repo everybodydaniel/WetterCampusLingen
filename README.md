@@ -62,7 +62,7 @@ node server.js
 ```
 *(Alternativ kann ein abweichender Port angegeben werden, falls `5173` blockiert ist: `$env:PORT=5174; node server.js` auf Windows).*
 
-Die Webseite ist danach im Browser unter [http://localhost:5173](http://localhost:5173) (bzw. dem konfigurierten Port) erreichbar.
+Die Webseite ist danach im Browser unter [http://localhost:5173](http://localhost:5173) (bzw. dem konfigurierten Port) erreichbar und oder über folgendenen Link: imt-web-004.lin.hs-osnabrueck.de
 
 ---
 
