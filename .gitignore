@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+.vscode/
+.weather-server.log
+.weather-server.pid
+.env
+node_modules/
+npm-debug.log*
+
+docs/

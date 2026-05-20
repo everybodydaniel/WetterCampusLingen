@@ -1,0 +1,21 @@
+{
+  "name": "campus-wetter-dashboard",
+  "version": "2.0.0",
+  "description": "Wetter-Dashboard fuer den Campus Lingen der Hochschule Osnabrueck",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "dependencies": {
+    "mariadb": "^3.5.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "jsdoc": "^4.0.5"
+  }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Wetter-Dashboard für den Campus Lingen der Hochschule Osnabrück – aktuelle Stationsdaten, 7-Tage-Vorhersage und Historie.">
+    <title>Wetter am Campus Lingen – Hochschule Osnabrück</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css?v=1.2">
+    <link rel="stylesheet" href="css/base.css?v=1.2">
+    <link rel="stylesheet" href="css/weather-widget.css?v=1.2">
+    <link rel="stylesheet" href="css/responsive.css?v=1.2">
+
+</head>
+
+<body>
+
+    <nav class="top-nav" id="top-nav">
+        <div class="top-nav-inner">
+            <div class="nav-logo" title="Hochschule Osnabrück">
+                <img src="logo_hs_osnabrueck.png" alt="Logo Hochschule Osnabrück" class="nav-logo-img">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#wetter" class="nav-link active" id="nav-wetter">Wetter-Info</a></li>
+                <li><a href="#historie" class="nav-link" id="nav-history">Historie</a></li>
+                <li><a href="https://www.hs-osnabrueck.de/" target="_blank" rel="noopener noreferrer" class="nav-link"
+                        >Campus</a></li>
+                <li><a href="https://www.studentenwerk-osnabrueck.de/de/essen/speiseplaene/mensa-lingen.html"
+                        target="_blank" rel="noopener noreferrer" class="nav-link">Mensa</a></li>
+                <li><a href="https://servicedesk.hs-osnabrueck.de/plugins/servlet/desk/portal/2" target="_blank"
+                        rel="noopener noreferrer" class="nav-link">Services</a></li>
+                <li><a href="https://www.hs-osnabrueck.de/impressum/" target="_blank" rel="noopener noreferrer"
+                        class="nav-link">Impressum</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="campus-background">
+        <img src="Campus_Lingen.webp" alt="Hochschule Osnabrück – Campus Lingen" class="campus-bg-image">
+        <div class="campus-bg-overlay"></div>
+    </div>
+
+    <main class="main-container">
+
+        <header class="page-header" id="page-header">
+            <h1 class="page-title">Wetter am Campus Lingen</h1>
+            <p class="page-subtitle">Kaiserstraße 10C, 49809 Lingen (Ems)</p>
+        </header>
+
+        <section class="weather-widget" id="weather-widget" aria-label="Aktuelle Wetterdaten">
+            <div class="rain-overlay" id="main-rain-overlay"></div>
+            <div class="sun-overlay" id="main-sun-overlay"></div>
+            <div class="cloud-overlay" id="main-cloud-overlay"></div>
+
+            <div class="widget-current" id="widget-current">
+                <div class="current-icon" id="current-icon" aria-hidden="true">
+
+                </div>
+                <div class="current-info">
+                    <div class="current-temp" id="current-temp">--°C</div>
+                    <div class="current-condition" id="current-condition">Laden…</div>
+                    <ul class="current-details" id="current-details">
+                        <li id="detail-feels-like">
+                            <span class="detail-label">Gefühlt</span>
+                            <span class="detail-value">--°C</span>
+                        </li>
+                        <li id="detail-wind">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value">-- km/h</span>
+                        </li>
+                        <li id="detail-humidity">
+                            <span class="detail-label">Luftfeuchtigkeit</span>
+                            <span class="detail-value">--%</span>
+                        </li>
+                        <li id="detail-precipitation">
+                            <span class="detail-label">Niederschlag 1h</span>
+                            <span class="detail-value">-- mm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="widget-divider">
+
+            <div class="widget-forecast" id="widget-forecast">
+
+            </div>
+
+            <footer class="widget-footer" id="widget-footer">
+                <div class="footer-timestamp" id="footer-timestamp">
+                    <span class="timestamp-icon" aria-hidden="true">🕐</span>
+                    <span id="timestamp-text">Datenstand: --:-- Uhr</span>
+                </div>
+                <div class="footer-sources" id="footer-sources">
+                    <span class="sources-label">Datenquellen:</span>
+                    <div class="source-badges">
+                        <span class="source-badge" title="WeatherLink Stationsdaten">
+                            <span class="source-badge-icon">WL</span>
+                            <span class="source-badge-text">WeatherLink</span>
+                        </span>
+                        <span class="source-badge" title="Deutscher Wetterdienst">
+                            <span class="source-badge-icon">DWD</span>
+                            <span class="source-badge-text">Vorhersage & Historie</span>
+                        </span>
+                        <span class="source-badge" title="Umweltamt">
+                            <span class="source-badge-icon">UA</span>
+                            <span class="source-badge-text">Umweltamt</span>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+
+        </section>
+
+
+        <section class="history-panel" id="weather-history" aria-label="Historische DWD-Tageswerte" hidden>
+            <header class="history-header">
+                <div>
+                    <p class="section-kicker">DWD-Historie</p>
+                    <h2 class="section-title">1 Jahr Historie</h2>
+                </div>
+            </header>
+
+            <div class="history-months" id="history-months" role="tablist" aria-label="Monat auswählen">
+
+            </div>
+
+            <div class="history-summary" id="history-summary">
+
+            </div>
+
+            <div class="history-content">
+                <div class="history-days" id="history-days" aria-label="Tage im ausgewählten Monat">
+
+                </div>
+                <article class="day-details" id="day-details" aria-live="polite">
+
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="forecast-modal-overlay" id="forecast-modal-overlay" hidden>
+        <article class="forecast-modal" id="forecast-modal">
+            <button class="modal-close" id="modal-close" aria-label="Schließen">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-content" id="modal-content">
+
+            </div>
+        </article>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="js/weather-icons.js?v=1.2"></script>
+    <script src="js/weather-themes.js?v=1.2"></script>
+    <script src="js/weather-widget.js?v=1.2"></script>
+
+</body>
+
+</html>
